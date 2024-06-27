@@ -6,10 +6,6 @@ def send_message(webhook_url, message):
     headers = {'Content-Type': 'application/json'}
     payload = {'content': message}
     response = requests.post(webhook_url, headers=headers, json=payload)
-    if response.status_code == 204:
-        messagebox.showinfo("Success", "Message sent successfully")
-    else:
-        messagebox.showerror("Error", "Failed to send message")
 
 def send_button_clicked():
     webhook_url = webhook_url_entry.get()
@@ -36,4 +32,3 @@ send_button = tk.Button(root, text="Send", command=send_button_clicked)
 send_button.pack()
 
 root.mainloop()
-
